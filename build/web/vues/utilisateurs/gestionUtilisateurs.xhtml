@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+            
+            table{
+                border: solid 1px;
+            }
+            
+        </style>
+        <h:outputStylesheet library="css" name="magma.css"  />
+    </h:head>
+    <h:body>
+        
+    <div class="container-backend">
+        
+        <ui:include src="WEB-INF/vues/menu.xhtml" />
+        <h:form> 
+        
+            
+        <ul class="menu-action">
+            <li><h:commandLink  action="ajouterUtilisateur">Ajouter un utilisateur</h:commandLink></li>
+        </ul>
+        <div class="clear"></div>
+            
+            
+        <table width="100%" border="1" align="center">
+            <tr>
+            <th>ID utilisateur</th>
+            <th>Nom utilisateur</th>
+            <th>Password</th>
+            <th>Groupe utilisateur</th>
+            <th>Actions</th>
+            </tr>
+            
+              
+               <ui:repeat value="#{utilisateursBeans.afficherUtilisateur()}" var="utilisateur">          
+                <tr>
+                <td>#{utilisateur.id}</td>
+                <td>#{utilisateur.utilisateur}</td>
+                <td>#{utilisateur.password}</td>
+                <td>
+                    <ui:repeat value="#{utilisateur.groupe}" var="gr">
+                            #{gr.labelMembre} | 
+                    </ui:repeat>  
+                </td>
+                <td>
+                    <h:commandLink action="#{utilisateursBeans.supprimerUtilisateur(utilisateur.id)}">Supprimer  </h:commandLink>
+                    <h:commandLink action="#{utilisateursBeans.supprimerUtilisateur(utilisateur.id)}">Modifier  </h:commandLink>
+                
+                </td>
+               </tr>
+               </ui:repeat>    
+                 
+        </table>
+        </h:form>
+    </div>     
+        
+    </h:body>
+</html>
+

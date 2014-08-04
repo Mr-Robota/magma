@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Platforme magma</title>
+        <h:outputStylesheet library="css" name="magma.css"  />
+    </h:head>
+    <h:body>
+        <div class="header">
+            <div class="header-content">
+            <div class="logo"></div>
+           
+            <ul>
+                <li><a href='javascript:void(0)'>Cours</a></li>
+                <li><a href='javascript:void(0)'>Spécialisations</a></li>
+                <li><a href='javascript:void(0)'>Institutions</a></li>
+                <li><a href='javascript:void(0)'>A propos</a></li>
+                <li><a href='javascript:void(0)'>|</a></li>
+                <li><a href='#{backEndBeans.login()}'>Se connecter</a></li>
+                <li><a href='javascript:void(0)'>S'inscrire</a></li>                
+            </ul>
+            <div class="clear"></div>
+            </div>
+            
+        </div>
+        
+        <div class="banniere">
+            
+            <div class="div-recherche">
+                <h1>Suivez les meilleurs cours du monde, en <br /> ligne, gratuitement.</h1>
+                <h:form>
+                    <h:inputText value="#{formationBeans.motCleFormation}" required="true" requiredMessage="Entre le titre de la formation" id="champFormation" /><br />
+                    <h:message for="champFormation" />
+                <h:commandButton action="#{formationBeans.chercherFormation()}" value="Chercher" />
+                </h:form>
+                <h3>Rejoindre 8,457,142 Courseriens.<br />
+                    Apprenez de 692 cours, de nos 110 partenaires.<br />
+                    Comment cela marche »
+                </h3>
+            </div>
+            
+            
+        </div>
+        
+    </h:body>
+</html>
+
